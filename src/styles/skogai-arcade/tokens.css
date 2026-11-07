@@ -1,0 +1,93 @@
+/* Skogai Arcade Design System — generated from tokens.json */
+/* Brand @font-face rules (BigBlueTerm, DepartureMono) omitted: the font files are not vendored yet, so terminal text falls back to VT323. */
+:root, [data-theme="arcade"] {
+  --sk-bg: #0b0716;
+  --sk-bg-2: #140a26;
+  --sk-shell: #1a1030;
+  --sk-card: #211640;
+  --sk-card-2: #2c1d54;
+  --sk-muted: #3a2966;
+  --sk-overlay: rgba(8, 4, 20, 0.78);
+  --sk-fg: #f3e9ff;
+  --sk-fg-2: #c8b6e8;
+  --sk-fg-muted: #8a78b3;
+  --sk-fg-dim: #5b4d80;
+  --sk-fg-on-neon: #1a0420;
+  --sk-border: #4a3580;
+  --sk-border-soft: #2a1d52;
+  --sk-border-strong: #6f4ec2;
+  --sk-ring: #d65cff;
+  --sk-neon-magenta: #ff3ea0;
+  --sk-neon-pink: #ff7ad9;
+  --sk-neon-violet: #b26bff;
+  --sk-neon-purple: #8a3dff;
+  --sk-neon-cyan: #4ee2ff;
+  --sk-neon-blue: #4a7dff;
+  --sk-neon-green: #5fff8a;
+  --sk-neon-acid: #3dff9e;
+  --sk-neon-teal: #2fe0d0;
+  --sk-neon-yellow: #ffd23f;
+  --sk-neon-orange: #ff9347;
+  --sk-neon-red: #ff4d6d;
+  --sk-primary: var(--sk-neon-magenta);
+  --sk-primary-fg: var(--sk-fg-on-neon);
+  --sk-accent: var(--sk-neon-cyan);
+  --sk-success: var(--sk-neon-green);
+  --sk-warning: var(--sk-neon-yellow);
+  --sk-danger: var(--sk-neon-red);
+  --sk-info: var(--sk-neon-cyan);
+  --sk-glow-magenta: 0 0 6px #ff3ea0, 0 0 14px rgba(255, 62, 160, 0.55);
+  --sk-glow-violet: 0 0 6px #b26bff, 0 0 14px rgba(178, 107, 255, 0.55);
+  --sk-glow-cyan: 0 0 6px #4ee2ff, 0 0 14px rgba(78, 226, 255, 0.55);
+  --sk-glow-green: 0 0 4px #5fff8a, 0 0 10px rgba(95, 255, 138, 0.5);
+  --sk-glow-yellow: 0 0 4px #ffd23f, 0 0 10px rgba(255, 210, 63, 0.55);
+  --sk-inset-violet: inset 0 0 0 2px #4a3580, inset 0 0 12px rgba(178, 107, 255, 0.35);
+  --sk-inset-cyan: inset 0 0 0 2px #2a6f8a, inset 0 0 12px rgba(78, 226, 255, 0.35);
+}
+:root {
+  --sk-space-2: 2px;
+  --sk-space-4: 4px;
+  --sk-space-6: 6px;
+  --sk-space-8: 8px;
+  --sk-space-12: 12px;
+  --sk-space-16: 16px;
+  --sk-space-24: 24px;
+  --sk-space-32: 32px;
+  --sk-space-48: 48px;
+  --sk-space-64: 64px;
+  --sk-radius-0: 0;
+  --sk-radius-control: 2px;
+  --sk-radius-panel: 4px;
+  --sk-radius-overlay: 6px;
+  --sk-text-10: 10px;
+  --sk-text-12: 12px;
+  --sk-text-14: 14px;
+  --sk-text-16: 16px;
+  --sk-text-18: 18px;
+  --sk-text-20: 20px;
+  --sk-text-24: 24px;
+  --sk-text-32: 32px;
+  --sk-text-40: 40px;
+  --sk-text-48: 48px;
+  --sk-text-60: 60px;
+  --sk-leading-tight: 1.0;
+  --sk-leading-snug: 1.2;
+  --sk-leading-normal: 1.4;
+  --sk-leading-loose: 1.6;
+  --font-display: "Press Start 2P", "Silkscreen", monospace;
+  --font-ui: "Silkscreen", "Press Start 2P", monospace;
+  --font-body: "VT323", "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", "VT323", ui-monospace, monospace;
+  --font-terminal: "BigBlueTermPlus", "BigBlueTerm", "DepartureMono", "VT323", ui-monospace, monospace;
+  --font-pixel-mono: "DepartureMono", "BigBlueTerm", "VT323", ui-monospace, monospace;
+}
+.display-h1 { font-family: var(--font-display); font-size: 48px; line-height: 1.1; font-weight: 400; }
+.display-h2 { font-family: var(--font-display); font-size: 32px; line-height: 1.15; font-weight: 400; }
+.display-h3 { font-family: var(--font-display); font-size: 20px; line-height: 1.2; font-weight: 400; }
+.ui-h4 { font-family: var(--font-ui); font-size: 16px; line-height: 1.2; font-weight: 400; }
+.ui-label { font-family: var(--font-ui); font-size: 12px; font-weight: 400; }
+.ui-meta { font-family: var(--font-ui); font-size: 10px; font-weight: 400; }
+.body-lg { font-family: var(--font-body); font-size: 24px; line-height: 1.4; font-weight: 400; }
+.body-md { font-family: var(--font-body); font-size: 20px; line-height: 1.4; font-weight: 400; }
+.body-sm { font-family: var(--font-body); font-size: 18px; line-height: 1.4; font-weight: 400; }
+.terminal { font-family: var(--font-terminal); font-size: 16px; font-weight: 400; }
