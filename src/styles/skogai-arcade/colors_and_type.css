@@ -1,0 +1,111 @@
+@import url("tokens.css"); /* palette, glows, spacing, radius, type scale and brand @font-face: edit them in tokens.json */
+/* ---- Web fonts (Google Fonts substitutes for display + body) ----------- */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap");
+
+/* ==========================================================================
+   Skogai Arcade — Colors & Type
+   Pixel-art neon arcade design language (cyberpunk + retro game UI)
+   ========================================================================== */
+:root {
+  /* Colours, glows and insets live in tokens.json (served as tokens.css). */
+
+  /* ====================================================================
+     TYPOGRAPHY
+     - Display (headline) → Press Start 2P (8-bit pixel)
+     - UI / chrome        → Silkscreen     (taller pixel)
+     - Body / terminal    → VT323          (chunky CRT)
+     - Terminal emulator  → BigBlueTerm    (IBM PC BIOS + Nerd Font icons)
+     - Mono / code        → JetBrains Mono (legible code)
+     - Pixel mono alt     → DepartureMono  (modern pixel — optional)
+     ==================================================================== */
+
+  --sk-font-display:  "Press Start 2P", "Silkscreen", monospace;
+  --sk-font-ui:       "Silkscreen", "Press Start 2P", monospace;
+  --sk-font-body:     "VT323", "JetBrains Mono", monospace;
+  --sk-font-mono:     "JetBrains Mono", "VT323", ui-monospace, monospace;
+  --sk-font-terminal: "BigBlueTermPlus", "BigBlueTerm", "DepartureMono", "VT323", ui-monospace, monospace;
+  --sk-font-pixel-mono: "DepartureMono", "BigBlueTerm", "VT323", ui-monospace, monospace;
+
+  /* Spacing, radius and the type scale live in tokens.json. These shadows
+     follow --sk-border, which cabinet scopes re-tint, so they stay here. */
+  --sk-shadow-panel:   0 2px 0 #000, 0 0 0 1px var(--sk-border);
+  --sk-shadow-card:    0 4px 0 rgba(0,0,0,0.6), 0 0 0 1px var(--sk-border);
+  --sk-shadow-overlay: 0 8px 0 rgba(0,0,0,0.5), 0 0 0 2px var(--sk-border-strong);
+}
+
+/* ====================================================================
+   CABINET THEMES
+   Four sub-brands, one chassis. Scope a screen with data-cabinet="…"
+   and the canvas tint + accent roles swap; every component keeps its
+   own rules. Never mix two cabinet accents on one screen.
+   ==================================================================== */
+
+[data-cabinet="sudo-hero"] {
+  --sk-bg: #0e0620; --sk-bg-2: #180b32; --sk-shell: #1d1038; --sk-card: #241548; --sk-card-2: #301c60;
+  --sk-border: #4a3580; --sk-border-strong: #8a3dff; --sk-ring: #b26bff;
+  --sk-primary: var(--sk-neon-violet); --sk-accent: var(--sk-neon-pink);
+  --sk-cabinet-glow: var(--sk-glow-violet);
+}
+[data-cabinet="wifi-wizards"] {
+  --sk-bg: #12071c; --sk-bg-2: #1c0a2c; --sk-shell: #230e36; --sk-card: #2b1240; --sk-card-2: #3a1854;
+  --sk-border: #6b2a6e; --sk-border-strong: #ff3ea0; --sk-ring: #ff7ad9;
+  --sk-primary: var(--sk-neon-magenta); --sk-accent: var(--sk-neon-cyan);
+  --sk-cabinet-glow: var(--sk-glow-magenta);
+}
+[data-cabinet="honkers-hackers"] {
+  --sk-bg: #05101f; --sk-bg-2: #081a2e; --sk-shell: #0b2138; --sk-card: #0e2a45; --sk-card-2: #133655;
+  --sk-border: #1f5f7a; --sk-border-strong: #2fa8c8; --sk-ring: #4ee2ff;
+  --sk-primary: var(--sk-neon-cyan); --sk-accent: var(--sk-neon-yellow);
+  --sk-cabinet-glow: var(--sk-glow-cyan);
+}
+[data-cabinet="skognet-syndicate"] {
+  --sk-bg: #050f0c; --sk-bg-2: #081a14; --sk-shell: #0b241b; --sk-card: #0e2c21; --sk-card-2: #133a2b;
+  --sk-border: #1f6647; --sk-border-strong: #2fb87a; --sk-ring: #3dff9e;
+  --sk-primary: var(--sk-neon-acid); --sk-accent: var(--sk-neon-magenta);
+  --sk-cabinet-glow: var(--sk-glow-green);
+}
+
+.sk-glow-acid { color: var(--sk-neon-acid); text-shadow: 0 0 6px #3dff9e, 0 0 14px rgba(61, 255, 158, 0.55); }
+
+/* ====================================================================
+   BASE TYPOGRAPHY UTILITIES
+   ==================================================================== */
+
+body {
+  background: var(--sk-bg);
+  color: var(--sk-fg);
+  font-family: var(--sk-font-body);
+  font-size: var(--sk-text-18);
+  line-height: var(--sk-leading-normal);
+  -webkit-font-smoothing: none;     /* keep pixel crispness */
+  font-smooth: never;
+  image-rendering: pixelated;
+}
+
+.sk-display     { font-family: var(--sk-font-display); line-height: var(--sk-leading-tight); letter-spacing: 0; }
+.sk-ui          { font-family: var(--sk-font-ui); }
+.sk-body        { font-family: var(--sk-font-body); }
+.sk-mono        { font-family: var(--sk-font-mono); }
+.sk-term        { font-family: var(--sk-font-terminal); font-feature-settings: "liga" 0, "calt" 0; }
+.sk-pixel-mono  { font-family: var(--sk-font-pixel-mono); }
+
+/* Headline roles */
+.sk-h1 { font-family: var(--sk-font-display); font-size: var(--sk-text-48); line-height: 1.1; }
+.sk-h2 { font-family: var(--sk-font-display); font-size: var(--sk-text-32); line-height: 1.15; }
+.sk-h3 { font-family: var(--sk-font-display); font-size: var(--sk-text-20); line-height: 1.2; }
+.sk-h4 { font-family: var(--sk-font-ui);      font-size: var(--sk-text-16); line-height: 1.2; }
+
+/* Body / chrome roles */
+.sk-body-lg     { font-family: var(--sk-font-body); font-size: var(--sk-text-24); }
+.sk-body-md     { font-family: var(--sk-font-body); font-size: var(--sk-text-20); }
+.sk-body-sm     { font-family: var(--sk-font-body); font-size: var(--sk-text-18); }
+.sk-label       { font-family: var(--sk-font-ui);   font-size: var(--sk-text-12); }
+.sk-meta        { font-family: var(--sk-font-ui);   font-size: var(--sk-text-10); color: var(--sk-fg-muted); }
+.sk-terminal    { font-family: var(--sk-font-terminal); font-size: var(--sk-text-16); color: var(--sk-neon-green); text-shadow: var(--sk-glow-green); font-feature-settings: "liga" 0, "calt" 0; }
+
+/* Neon text helpers */
+.sk-glow-magenta { color: var(--sk-neon-magenta); text-shadow: var(--sk-glow-magenta); }
+.sk-glow-violet  { color: var(--sk-neon-violet);  text-shadow: var(--sk-glow-violet);  }
+.sk-glow-cyan    { color: var(--sk-neon-cyan);    text-shadow: var(--sk-glow-cyan);    }
+.sk-glow-green   { color: var(--sk-neon-green);   text-shadow: var(--sk-glow-green);   }
+.sk-glow-yellow  { color: var(--sk-neon-yellow);  text-shadow: var(--sk-glow-yellow);  }

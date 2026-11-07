@@ -1,0 +1,134 @@
+/* Layout for the fleet dashboard. Components come from the Skogai Arcade
+   design system (skogai-arcade/*.css); this file only places them and adds
+   the cabinet-tinted variants the design uses. */
+
+body { margin: 0; background: #0b0716; }
+a { color: #b26bff; }
+a:hover { color: #d65cff; }
+
+.dashboard {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--sk-bg);
+  color: var(--sk-fg);
+  font-family: var(--sk-font-body);
+  font-size: 18px;
+  padding: 24px 16px;
+}
+.dashboard__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.dashboard__main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ---- Cabinet-tinted variants ---------------------------------------- */
+.btn-cabinet {
+  background: var(--sk-primary);
+  color: var(--sk-fg-on-neon);
+  border-color: var(--sk-border-strong);
+  box-shadow: var(--sk-cabinet-glow);
+  min-height: 44px;
+}
+.btn-cabinet:hover { background: var(--sk-primary); filter: brightness(1.12); }
+.plaque-cabinet { box-shadow: inset 0 0 0 2px var(--sk-border-strong); }
+.plaque-cabinet .sk-plaque-value { color: var(--sk-primary); text-shadow: var(--sk-cabinet-glow); }
+.icon-cabinet,
+.sk-quest-active .sk-quest-icon { color: var(--sk-primary); box-shadow: inset 0 0 0 2px var(--sk-border-strong); }
+
+/* ---- HUD header ----------------------------------------------------- */
+.hud-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 16px;
+  padding: 12px;
+}
+.hud-header__who {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex: 1 1 200px;
+}
+.hud-header__rank { font-family: var(--sk-font-ui); font-size: 12px; color: var(--sk-primary); }
+.hud-header__summary { font-family: var(--sk-font-body); font-size: 20px; color: var(--sk-fg-2); }
+.hud-header__stats { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.hud-header__actions { display: flex; align-items: center; gap: 8px; }
+
+/* ---- Readouts ------------------------------------------------------- */
+.readouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* ---- Section heading ------------------------------------------------ */
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.section-heading__display { margin: 0; font-size: 20px; color: var(--sk-fg); }
+.section-heading__label { margin: 0; color: var(--sk-fg-2); }
+
+/* ---- Crew roster ---------------------------------------------------- */
+.roster {
+  flex: 999 1 560px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.roster__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.agent-card { padding: 16px; gap: 8px; }
+.agent-card__head,
+.agent-card__foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.agent-card__id { display: flex; align-items: center; gap: 12px; }
+.agent-card__names { display: flex; flex-direction: column; gap: 2px; }
+.agent-card__name { margin: 0; font-family: var(--sk-font-display); font-size: 14px; color: var(--sk-fg); }
+.agent-card__task {
+  font-family: var(--sk-font-mono);
+  font-size: 13px;
+  color: var(--sk-fg-muted);
+  background: #050810;
+  padding: 6px 8px;
+  border-radius: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Command panel (signal, diff log, actions) ---------------------- */
+.command-panel {
+  flex: 1 1 380px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.command-panel__signal { margin: 0 0 6px; }
+.command-panel__signal:last-child { margin-bottom: 0; }
+.command-panel__log { display: flex; flex-direction: column; gap: 8px; }
+.command-panel__terminal { font-family: var(--sk-font-mono); font-size: 14px; }
+.command-panel__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.command-panel__actions .sk-btn { min-height: 44px; }
+
+/* ---- Quest log ------------------------------------------------------ */
+.quest-log { display: flex; flex-direction: column; gap: 12px; }
+.quest-log__strip { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.sk-quest-done .sk-quest-progress > div { background: var(--sk-neon-green); box-shadow: var(--sk-glow-green); }
+.sk-quest-active .sk-quest-progress > div { background: var(--sk-primary); box-shadow: var(--sk-cabinet-glow); }
